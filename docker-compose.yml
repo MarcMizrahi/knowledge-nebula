@@ -10,17 +10,19 @@ services:
     env_file:
       - ./backend/.env
     volumes:
-      - ./backend/storage:/app/storage
+      - /data/nebula-storage:/app/storage
     restart: unless-stopped
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NODE_ENV=production
     depends_on:
       - backend
     restart: unless-stopped
