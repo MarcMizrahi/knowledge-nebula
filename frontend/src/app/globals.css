@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080b14;
+  --foreground: #e2e8f0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Nebula particle background */
+.nebula-bg {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(120, 40, 200, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(40, 100, 200, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(200, 40, 120, 0.08) 0%, transparent 50%),
+    #080b14;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.4); }
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(15, 20, 35, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+/* Animated gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* Score bar */
+.score-bar {
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa);
+}
